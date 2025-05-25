@@ -21,11 +21,11 @@ export const getUserById = async (req, res) => {
 
 export const updateUser = async (req, res) => {
   try {
-    const { firstName, lastName, adress, email } = req.body;
+    const { userName, email, isBanned } = req.body;
 
     const updatedUser = await User.findByIdAndUpdate(
       req.params.id,
-      { firstName, lastName, adress, email },
+      { userName, email, isBanned },
       { new: true }
     ).select("-password");
 

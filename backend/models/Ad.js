@@ -8,6 +8,10 @@ const adSchema = new mongoose.Schema(
     ads_price: Number,
     ads_photo: String,
     ads_rating: { type: Number, default: 0 },
+    is_banned: {
+      type: Boolean,
+      default: false,
+    },
     likedBy: {
       type: [String],
       default: [],

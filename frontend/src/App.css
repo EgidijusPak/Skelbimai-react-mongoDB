@@ -1,42 +1,686 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* admin users page */
+.admin-user-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+  padding: 0 1rem;
+}
+
+.user-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1rem 1.2rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 1rem;
+}
+
+.user-card strong {
+  font-size: 1.2rem;
+  min-width: 140px;
+  color: #222;
+}
+
+.banned {
+  color: #d93025;
+  font-weight: bold;
+}
+
+.not-banned {
+  color: #188038;
+  font-weight: bold;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.btn-ban {
+  background-color: #d93025;
+  color: white;
+}
+
+.btn-ban:hover {
+  background-color: #a5231a;
+}
+
+.btn-unban {
+  background-color: #188038;
+  color: white;
+}
+
+.btn-unban:hover {
+  background-color: #125825;
+}
+
+.btn-delete {
+  background-color: #555;
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #333;
+}
+
+/* ////////////////////////////////////////////// */
+/* Admin all ads */
+.admin-ads-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: Arial, sans-serif;
+}
+
+.ad-card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  font-size: 0.9rem;
+}
+
+.ad-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.ad-image {
+  max-width: 100%;
+  max-height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.75rem;
+}
+
+.ad-card p {
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.comments-section {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 0.75rem;
+}
+
+.comment-card {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.btn {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.btn-ban {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.btn-unban {
+  background-color: #27ae60;
+  color: white;
+}
+
+.btn-delete {
+  background-color: #c0392b;
+  color: white;
+}
+
+.banned {
+  color: #e74c3c;
+  font-weight: 600;
+}
+
+.not-banned {
+  color: #27ae60;
+  font-weight: 600;
+}
+
+/* buttons colors already defined */
+
+/*///////////////////////////////////////////////////////////////*/
+/* add ads style */
+.add-ad-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  background-color: #fdfdfd;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 2rem 2.5rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.add-ad-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.add-ad-form input,
+.add-ad-form textarea,
+.add-ad-form select {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.3rem;
+  border-radius: 4px;
+  border: 1.2px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.add-ad-form input:focus,
+.add-ad-form textarea:focus,
+.add-ad-form select:focus {
+  outline: none;
+  border-color: #1976d2;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.4);
+}
+
+.add-ad-form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.ad-preview-image {
+  margin-top: 1rem;
+  max-width: 100%;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.add-ad-form button {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.4rem;
+  font-size: 1.1rem;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.add-ad-form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/*8888888888888888888888888888888888888888*/
+/* Dashboard */
+.ads-list {
+  max-width: 900px;
+  margin: 2rem auto;
+  font-family: Arial, sans-serif;
+}
+
+.ad-card {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.ad-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ad-img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 0.75rem;
+  user-select: none;
+}
+
+.ad-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  color: #222;
+}
+
+.ad-card p {
+  margin: 0.3rem 0;
+  color: #444;
+  font-size: 0.9rem;
+  line-height: 1.3;
+}
+
+.ad-card strong {
+  color: #555;
+}
+
+button {
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.35rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+button:hover {
+  background-color: #145a9d;
+}
+
+button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+button + button {
+  margin-left: 0.6rem;
+}
+
+.comments {
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+  padding-top: 0.75rem;
+}
+
+.comments h4 {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1rem;
+}
+
+.comment-box {
+  display: flex;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.comment-box input[type="text"] {
+  flex-grow: 1;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  font-family: inherit;
+}
+
+.comment-box input[type="text"]:focus {
+  border-color: #1976d2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.4);
+}
+
+.comment-box button {
+  margin-left: 0.5rem;
+  padding: 0.4rem 1rem;
+}
+
+.comment-card {
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.comment-card p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.comment-card button {
+  margin-left: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.8rem;
+  background-color: #c0392b;
+  border-radius: 3px;
+}
+
+.comment-card button:hover {
+  background-color: #992d22;
+}
+
+p[style*="color: red"] {
+  margin-top: 0.6rem;
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f3f3f3;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 20px;
+}
+
+.navbar button {
+  padding: 8px 14px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  user-select: none;
+}
+
+.navbar button:hover {
+  background-color: #125ea6;
+}
+
+.search-form input,
+.search-form select {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .admin-ads-container,
+  .admin-user-container,
+  .add-ad-container,
+  .all-ads {
+    max-width: 90%;
+    padding: 0 1rem;
+  }
+
+  .user-card {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .ad-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-right {
+    align-self: flex-end;
+    margin-top: 10px;
+  }
+
+  .search-form {
+    flex-direction: column;
+    align-items: stretch;
+    margin-left: 0;
+  }
+
+  .user-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .user-card strong {
+    min-width: auto;
+  }
+
+  .btn {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .add-ad-container,
+  .admin-user-container,
+  .admin-ads-container,
+  .all-ads {
+    padding: 1rem;
+  }
+
+  .add-ad-form button,
+  .ad-card button {
+    width: 100%;
+    margin-bottom: 0.7rem;
+  }
+
+  .comment-box {
+    flex-direction: column;
+  }
+
+  .comment-box input {
+    width: 100%;
+  }
+
+  .comment-box button {
+    width: 100%;
+  }
+}
+
+/* Homepage Ads */
+.homepage-ads {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.ad-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.ad-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
 }
 
-@keyframes logo-spin {
-  from {
+/* Footer.css */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fafafa;
+  color: #333;
+}
+
+.footer {
+  flex-shrink: 0;
+  background-color: #f1f1f1; /* or your existing footer bg */
+  padding: 1.5rem 0;
+  text-align: center;
+  font-weight: 600;
+  border-top: 1px solid #ddd;
+}
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Make main-content expand to fill available space */
+.main-content {
+  flex: 1 0 auto;
+}
+/* Login/Register forms */
+/* Replace login-container with login-form */
+.login-form,
+.register-form {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+}
+
+.login-form h2,
+.register-form h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.login-form input,
+.register-form input {
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.login-form input:focus,
+.register-form input:focus {
+  border-color: #1976d2;
+  outline: none;
+  box-shadow: 0 0 5px rgba(25, 118, 210, 0.4);
+}
+
+.login-form button,
+.register-form button {
+  padding: 0.7rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.login-form button:hover,
+.register-form button:hover {
+  background-color: #145a9d;
+}
+
+/* Validation error messages */
+.error-message {
+  color: #d93025;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Small helper text */
+.helper-text {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Spinner */
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1976d2;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

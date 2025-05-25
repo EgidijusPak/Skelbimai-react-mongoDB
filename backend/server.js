@@ -21,7 +21,7 @@ app.use(
 );
 app.use(express.json());
 
-app.use("/api", authRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/ads", adRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/comment", commentRoutes);
